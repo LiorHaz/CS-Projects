@@ -1,0 +1,138 @@
+﻿<Window x:Class="Employee_Project.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Employee_Project"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Main Menu" Height="500" Width="700" ResizeMode="NoResize"
+        Background="#04c582" Icon="Images/people.png" FontStyle="Italic" FontWeight="Bold" >
+    <Grid>
+        <!--Clock-->
+        <TextBlock  x:Name="dtime" FontSize="15"  Foreground="#2e3137" FontStyle="Normal"  Margin="517,0,-10,422" />
+    <DockPanel x:Name="Main">
+        <!-- Buttons to manage the App-->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="30">
+            <Button x:Name="AddBtn" Click="AddBtn_Click" Width="80" Margin="50,0,20,0" Content="Add" Background="#2e3137" Foreground="White"/>
+            <Button x:Name="UpdateBtn" Click="UpdateBtn_Click" Width="80" Margin="0,0,20,0" Content="Update" Background="#2e3137" Foreground="White"/>
+            <Button x:Name="DeleteBtn" Click="DeleteBtn_Click" Width="80" Margin="0,0,20,0" Content="Delete" Background="#2e3137" Foreground="White"/>
+            <Button x:Name="SearchBtn" Click="SearchBtn_Click" Width="80" Margin="0,0,20,0" Content="Search" Background="#2e3137" Foreground="White"/>
+            <Button x:Name="LogOutBtn" Click="LogOutBtn_Click" Width="80" Margin="0,0,20,0" Content="Log Out" Background="#2e3137" Foreground="White"/>
+            <Button x:Name="ExitBtn" Click="ExitBtn_Click" Width="80" Margin="0,0,20,0" Content="Exit" Background="#2e3137" Foreground="White"/>
+        </StackPanel>
+        <!--Tab Control for options-->
+            <TabControl x:Name="TabCtl">
+                <!--Employee Tab-->
+            <TabItem x:Name="Employee" Header="Employees" Height="35" >
+                <Grid x:Name="EGrid" Background="#2e3137">
+                    <!--Data Table-->
+                    <DataGrid x:Name="EmployeeDT" IsReadOnly="True" AutoGenerateColumns="True" HorizontalAlignment="Right" VerticalAlignment="Center" Height="260" Margin="0,81,24,52" Width="350" Background="Beige" FontStyle="Normal"/>
+                    <!--Details to fill-->
+                    <Label Content="ID Number" Margin="0,26,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerId" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,26,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="First Name" Margin="0,56,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerFirstName" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,56,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Last Name" Margin="0,86,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerLastName" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,86,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Gender" Margin="0,116,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <CheckBox x:Name="WorkerMale" Click="WorkerMale_Click" Content="Male" Margin="70,122,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <CheckBox x:Name="WorkerFemale" Content="Female" Click="WorkerFemale_Click" Margin="130,122,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <Label Content="City" Margin="0,146,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerCity" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,146,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Speciality" Margin="0,176,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <ComboBox x:Name="WorkerSpeciality"  ItemsSource="{Binding Speciality}" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,176,0,0" Background="#545d6a"  Foreground="Black" />
+                    <Label Content="Seniority" Margin="0,206,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerSeniority" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,206,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Salary" Margin="0,236,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerSalary" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,236,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Spa ID" Margin="0,266,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerSpaID" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,266,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Age" Margin="0,296,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerAge" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,296,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Worker Data Table" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,36,95,0" Height="45" Width="200" Foreground="Beige" FontSize="20" />
+                    <Button x:Name="Load_Employee_table" Click="Load_Employee_table_Click" Foreground="White" Background="#545d6a" Content="Reset Table" HorizontalAlignment="Left" Margin="432,358,0,0" VerticalAlignment="Top" Width="98" Height="25" />
+                    <Button x:Name="Reset_Employee_Details" Click="Reset_Employee_Details_Click" Foreground="White" Background="#545d6a" Content="Reset Details" HorizontalAlignment="Left" Margin="100,358,0,0" VerticalAlignment="Top" Width="98" Height="25"/>
+                </Grid>
+            </TabItem>
+            <!--Client Tab-->
+            <TabItem x:Name="Client" Header="Clients" >
+                <Grid x:Name="CGrid" Background="#2e3137">
+                    <!--Data Table-->
+                    <DataGrid x:Name="ClientDT" IsReadOnly="True" AutoGenerateColumns="True" HorizontalAlignment="Right" VerticalAlignment="Center" Height="260" Margin="0,81,24,52" Width="350" Background="Beige" FontStyle="Normal"/>
+                    <!--Details to fill-->
+                    <Label Content="ID Number" Margin="0,26,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="ClientId" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,26,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="First Name" Margin="0,56,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="ClientFirstName" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,56,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Last Name" Margin="0,86,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="ClientLastName" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,86,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Gender" Margin="0,116,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <CheckBox Click="ClientMale_Click" x:Name="ClientMale" Content="Male" Margin="70,122,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <CheckBox x:Name="ClientFemale"  Click="ClientFemale_Click" Content="Female" Margin="130,122,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <Label Content="City" Margin="0,146,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="ClientCity" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,146,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Age" Margin="0,176,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="ClientAge" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,176,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Client Data Table" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,36,95,0" Height="45" Width="200" Foreground="Beige" FontSize="20" />
+                    <Button x:Name="Load_Client_table" Click="Load_Client_table_Click"  Foreground="White" Background="#545d6a" Content="Reset Table" HorizontalAlignment="Left" Margin="432,358,0,0" VerticalAlignment="Top" Width="98" Height="25"/>
+                    <Button x:Name="Reset_Clients_Details" Click="Reset_Clients_Details_Click" Foreground="White" Background="#545d6a" Content="Reset Details" HorizontalAlignment="Left" Margin="100,358,0,0" VerticalAlignment="Top" Width="98" Height="25" />
+
+                </Grid>
+            </TabItem>
+            <!--Spa Tab-->
+            <TabItem x:Name="Spa" Header="Spa" >
+                <Grid x:Name="SGrid" Background="#2e3137">
+                    <!--Data Table-->
+                    <DataGrid x:Name="SpaDT" IsReadOnly="True" AutoGenerateColumns="True" HorizontalAlignment="Right" VerticalAlignment="Center" Height="260" Margin="0,81,24,52" Width="350" Background="Beige" Grid.Column="1" FontStyle="Normal" />
+                    <!--Details to fill-->
+                    <Label Content="ID Number" Margin="0,26,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="SpaId" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,26,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Spa Name" Margin="0,56,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="SpaName" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,56,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Region" Margin="0,86,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <ComboBox x:Name="SpaRegion" Height="25" ItemsSource="{Binding Region}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,86,0,0" Background="#545d6a"  Foreground="Black" />
+                    <Label Content="City" Margin="0,116,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="SpaCity" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,116,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Phone Number" Margin="0,146,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="11.5" />
+                    <TextBox x:Name="PhoneNumber" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,146,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Spa Data Table" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,36,95,0" Height="45" Width="200" Foreground="Beige" FontSize="20" Grid.Column="1" />
+                    <Button x:Name="Load_Spa_table" Click="Load_Spa_table_Click"  Foreground="White" Background="#545d6a" Content="Reset Table" HorizontalAlignment="Left" Margin="432,358,0,0" VerticalAlignment="Top" Width="98" Height="25" Grid.Column="1"/>
+                    <Button x:Name="Reset_Spa_Details" Click="Reset_Spa_Details_Click" Foreground="White" Background="#545d6a" Content="Reset Details" HorizontalAlignment="Left" Margin="100,358,0,0" VerticalAlignment="Top" Width="98" Height="25" />
+                    <Label Content="Rate" Margin="0,176,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <ComboBox x:Name="SpaRate" Height="25" ItemsSource="{Binding Rate}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,176,0,0" Background="#545d6a"  Foreground="Black" />
+                </Grid>
+            </TabItem>
+            <!--Transaction Tab-->
+            <TabItem x:Name="Transaction" Header="Transactions" Height="35" >
+                <Grid x:Name="TGrid" Background="#2e3137">
+                    <!--Data Table-->
+                    <DataGrid x:Name="TransactionDT" IsReadOnly="True" AutoGenerateColumns="True" HorizontalAlignment="Right" VerticalAlignment="Center" Height="260" Margin="0,81,24,52" Width="350" Background="Beige" FontStyle="Normal"/>
+                    <!--Details to fill-->
+                    <Label Content="Transaction ID" Margin="0,26,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="TransactionId" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,26,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Client ID" Margin="0,56,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="ClientID" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,56,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Worker ID" Margin="0,86,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="WorkerID" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,86,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Spa ID" Margin="0,116,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="SpaID" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,116,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Therapy Type" Margin="0,146,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <ComboBox x:Name="TherapyType" Height="25" ItemsSource="{Binding TherapyType}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,146,0,0" Background="#545d6a"  Foreground="Black" />
+                    <Label Content="Therapy Time(min)" FontSize="9.5" Margin="0,176,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="TherapyTime" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,176,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Date" Margin="0,206,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <DatePicker x:Name="Date" Language="English"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="96,206,0,0" Width="120"/>
+                    <Label Content="Price" Margin="0,236,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <TextBox x:Name="TherapyPrice" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,236,0,0" Background="#545d6a"  Foreground="White" />
+                    <Label Content="Payment" Margin="0,266,0,0" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" />
+                    <ComboBox x:Name="Payment" Height="25" ItemsSource="{Binding Payment}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="96,266,0,0" Background="#545d6a"  Foreground="Black" />
+                    <Label Content="Transaction Data Table" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,36,95,0" Height="45" Width="246" Foreground="Beige" FontSize="20" />
+                    <Button x:Name="Load_Transaction_table" Click="Load_Transaction_table_Click" Foreground="White" Background="#545d6a" Content="Reset Table" HorizontalAlignment="Left" Margin="432,358,0,0" VerticalAlignment="Top" Width="98" Height="25"/>
+                    <Button x:Name="Reset_Transaction_Details" Click="Reset_Transaction_Details_Click" Foreground="White" Background="#545d6a" Content="Reset Details" HorizontalAlignment="Left" Margin="100,358,0,0" VerticalAlignment="Top" Width="98" Height="25" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+    </Grid>
+</Window>

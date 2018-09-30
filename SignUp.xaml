@@ -1,0 +1,30 @@
+﻿<Window x:Class="Employee_Project.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Employee_Project"
+        mc:Ignorable="d"
+        Title="SignUp" Height="400" Width="400" Background="#04c582" ResizeMode="NoResize" Icon="Images/signup.png" >
+    <Grid>
+        <!--Backround-->
+        <Border Background="#2e3137" CornerRadius="20" Margin="20">
+            <StackPanel Margin="15">
+                <!--Login-->
+                <Label  FontSize="35" Content="Sign Up" Foreground="White" HorizontalAlignment="Center"/>
+                <!--Seperating between Login and Input details-->
+                <Separator></Separator>
+                <!--User Name-->
+                <Label FontSize="20" Foreground="White" HorizontalAlignment="Left" Width="120" Height="30" Content="Username"/>
+                <TextBox x:Name="NewUsertxt" Margin="0,5,10,0" Height="30" Background="#545d6a" FontSize="20" Foreground="White"/>
+                <!--Password-->
+                <Label FontSize="20" Foreground="White" HorizontalAlignment="Left" Width="120" Height="30" Content="Password"/>
+                <PasswordBox x:Name="NewPasswordtxt" Margin="0,5,10,0" Height="30" Background="#545d6a" FontSize="20" Foreground="White"/>
+                <!--Login Button-->
+                <Button x:Name="SignUpBtn"  Click="SignUpbtn_Click" Height="40" Margin="50,20" Background="#545d6a" Content="Sign Up" FontSize="26" Foreground="White" />
+                <!--Sign Up Button-->
+                <Button x:Name="BackToLogin" Click="BackToLogin_Click" Height="18" Width="45" Background="#545d6a" Content="Back" FontSize="10" Foreground="White" Margin="134,-10,134,20"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
